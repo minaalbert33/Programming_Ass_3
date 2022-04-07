@@ -1,3 +1,12 @@
+// FCI – Programming 1 – 2022 - Assignment 3
+// Program Name: CS112-203-2nd – 17 -20210143-20210169-20210417-A3-Part1.cpp
+// Last Modification Date: 04/07/2022
+// Author1 and ID and Group: Mina Albert Saeed  20210417
+// Author2 and ID and Group: Ziad Ahmed Mohamed 20210143
+// Author3 and ID and Group: Seif Elden Mahmoud Helmy 20210169
+// Teaching Assistant: Eng/ Hager Ali
+// Purpose: 6 Filters on Images
+
 #include<bits/stdc++.h>
 #include"bmplib.cpp"
 using namespace std;
