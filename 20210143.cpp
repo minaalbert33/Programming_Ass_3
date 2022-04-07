@@ -26,7 +26,7 @@ int main()
     if (Option=='1')
     {
         doBlackandWhiteforImage();
-        saveImage();
+        saveImage(image);
     }
     else if (Option=='a')
     {
@@ -57,7 +57,7 @@ void saveImage () {
     strcat (imageFileName, ".bmp");
     writeGSBMP(imageFileName, image);
 }
-void doBlackandWhiteforImage() {
+void doBlackandWhiteforImage(){
     long avg = 0 ;
     for (int i = 0; i < SIZE; i++) {
         for (int j = 0; j< SIZE; j++){
@@ -67,7 +67,6 @@ void doBlackandWhiteforImage() {
     avg/=(SIZE*SIZE);
     for (int i = 0; i < SIZE; i++) {
         for (int j = 0; j < SIZE; j++) {
-
             if (image[i][j] > avg)
                 image[i][j] = 255;
             else
