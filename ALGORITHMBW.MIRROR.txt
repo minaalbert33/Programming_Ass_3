@@ -1,0 +1,18 @@
+for filter black and wihte i put a variable avg this variable 
+improve the quality of the filter , first for loop is for rows in the matrix , the second is for columns 
+the avg will increase by the matrix , the next assign for the avg is to make avg more efficient if statments is to check the limit for black and white since black and white is from 0 to 255 .
+
+
+for filter Mirror .
+first in the Mirror filter is the up Mirror I maked a for loop that check the rows from the size and ends to 0 because i want to do Up filter ;
+the second for loop is to check from the 0 to size for the image , then the image will increase by the size - rows and size of columns .
+The left Mirror filter i maked the same for loops from the Up filter the changes here is the image will be size of rows and size of (size-columns) .
+The right Mirror filter first for loop is to check the rows from 0 to size second is to check size in columns from size to 0 and will decrement,
+The image will be Mirrored right because the image will be image for size in rows and in columns will be (size - columns).
+The down Mirror filter same for loops for Right Mirror filter the diffrent is the image will be for rows will be ( size - rows ) and for columns will be the columns only.
+the remainder from the code is to know from the user what does he want .
+if he wants Mirror up will press 1
+if he wants Mirror down will press 2 
+if he wants Mirror right will press 3 
+if he wants Mirror left will press 4 
+if he inputs any other numbers the Mirror filter will not be executed.      
