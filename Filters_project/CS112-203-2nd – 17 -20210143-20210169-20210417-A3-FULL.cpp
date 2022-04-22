@@ -689,7 +689,7 @@ void FlipHorizontal_RGB(){
     {
         for (int j = 0; j < SIZE; j++)
         {
-            for (int k = 0; k < SIZE ; k++)
+            for (int k = 0; k < RGB ; k++)
             {
                 newImage_rgb[i][j][k]=image_rgb[i][SIZE-j-1][k];
             }
@@ -703,7 +703,7 @@ void FlipVertical_RGB(){
     {
         for (int j = 0; j < SIZE; j++)
         {
-            for (int k = 0; k < SIZE ; k++)
+            for (int k = 0; k < RGB ; k++)
             {
                 newImage_rgb[i][j][k]=image_rgb[SIZE-i-1][j][k];
             }
