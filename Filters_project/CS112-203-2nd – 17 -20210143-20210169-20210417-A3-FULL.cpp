@@ -557,6 +557,7 @@ void blur_rgb() {
         }
     }
 }
+// Make the user choose from Mirror filters 
 void Mirror() {
     int Mirror_opt;
     cout << "Enter an option for Mirror: 1(upper),2(down),3(right),4(left): ";
@@ -640,10 +641,12 @@ void BlackandWhiteforImage_RGB() {
             {
                 sum += image_rgb[i][j][k];
             }
+            // to convert the RGB photo to grayscale to do black and white filter 
             sum = sum / 3;
             image[i][j] = sum;
         }
     }
+    // the same code from the black and white grayscale
     long avg = 0;
     for (int i = 0; i < SIZE; i++) {
         for (int j = 0; j < SIZE; j++) {
@@ -660,7 +663,7 @@ void BlackandWhiteforImage_RGB() {
         }
     }
 }
-
+//make the user choose from flip filters
 void doFlip() {
     int choice;
     cout << "Enter a choice for flip 1 to horizontal flip and 2 to vertical flip " << endl;
@@ -735,6 +738,7 @@ void doFlipVertical() {
         }
     }
 }
+// the sobel detection law 
 void detect_image() {
     for (int i = 1; i < SIZE - 1; i++)
     {
@@ -835,7 +839,8 @@ void doBlackandWhiteforImage() {
         for (int j = 0; j < SIZE; j++) {
             avg += image[i][j];
         }
-    }
+    } 
+    //to make the photo more efficient 
     avg /= (SIZE * SIZE);
     for (int i = 0; i < SIZE; i++) {
         for (int j = 0; j < SIZE; j++) {
