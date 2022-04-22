@@ -34,7 +34,7 @@ char gy_g[SIZE][SIZE][RGB];
 // Saving Images Function (grayscale && RGB)
 void load_image();
 void load_image2();
-void save_image(unsigned char [][SIZE]);
+void save_image(unsigned char[][SIZE]);
 void load_image_rgb();
 void load_image2_rgb();
 void save_image_rgb(unsigned char[][SIZE][RGB]);
@@ -63,10 +63,10 @@ void blur_rgb();
 
 
 // Ziad's Functions' PROTOTYPES
-void doBlackandWhiteforImage ();
-void doMirrorupforImage ();
-void doMirrorleftforImage ();
-void doMirrorrightforImage ();
+void doBlackandWhiteforImage();
+void doMirrorupforImage();
+void doMirrorleftforImage();
+void doMirrorrightforImage();
 void doMirrordownforImage();
 void Mirror();
 void doFlip();
@@ -122,7 +122,7 @@ int main() {
             merge();
             save_image(newImage);
         }
-        else if(choice == "4"){
+        else if (choice == "4") {
             doFlip();
             save_image(newImage);
         }
@@ -150,7 +150,7 @@ int main() {
             lightenDarken();
             save_image(newImage);
         }
-        else if(choice == "7"){
+        else if (choice == "7") {
             detect_image();
             save_image(image);
         }
@@ -174,7 +174,7 @@ int main() {
             blur();
             save_image(newImage);
         }
-        
+
     }
     else if (choice1 == "2") {
         string choice;
@@ -199,7 +199,8 @@ int main() {
             load_image2_rgb();
             merge_rgb();
             save_image_rgb(newImage_rgb);
-        }else if (choice == "4") {
+        }
+        else if (choice == "4") {
             Flip_RGB();
             save_image_rgb(newImage_rgb);
         }
@@ -226,7 +227,8 @@ int main() {
         else if (choice == "6") {
             lightenDarken_rgb();
             save_image_rgb(newImage_rgb);
-        }else if(choice == "7"){
+        }
+        else if (choice == "7") {
             detect_rgb();
             save_image_rgb(newImage_rgb);
         }
@@ -427,29 +429,29 @@ void lightenDarken() {
         }
     }
 }
-void lightenDarken_rgb(){
+void lightenDarken_rgb() {
     int ch;
     cout << "Do you want to darken or lighten the image ?" << endl;
     cout << "1-Darken\n2-Lighten: " << endl;
     cin >> ch;
-    if(ch == 2){
-        for (int i = 0; i <SIZE; i++) {
+    if (ch == 2) {
+        for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
-                for(int k = 0 ; k < RGB;k++){
+                for (int k = 0; k < RGB;k++) {
                     // get the image grayed by 200 and merge it with the real image.
                     newImage_rgb[i][j][k] = 200;
-                    newImage_rgb[i][j][k] = (newImage_rgb[i][j][k]+image_rgb[i][j][k])/2;
+                    newImage_rgb[i][j][k] = (newImage_rgb[i][j][k] + image_rgb[i][j][k]) / 2;
                 }
             }
         }
     }
-    
-    else if(ch == 1){
-        for (int i = 0; i <SIZE; i++) {
+
+    else if (ch == 1) {
+        for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
-                for(int k = 0 ; k < RGB;k++){
+                for (int k = 0; k < RGB;k++) {
                     // divide the total pixels in the image by 2 to dark it.
-                    newImage_rgb[i][j][k] = image_rgb[i][j][k]/2;
+                    newImage_rgb[i][j][k] = image_rgb[i][j][k] / 2;
                 }
             }
         }
@@ -528,11 +530,11 @@ void blur() {
     for (int i = 0; i < SIZE; i++) {
         for (int j = 0; j < SIZE; j++) {
             // getting the avg for a matrix in the image with 5 rows and 5 cols to blur the image
-            newImage[i][j]=(image[i][j]+image[i][j+1]+image[i][j+2]+image[i][j+3]
-                            +image[i][j+4]+image[i+1][j]+image[i+1][j+1]+image[i+1][j+2]+image[i+1][j+3]
-                            +image[i+1][j+4]+image[i+2][j]+image[i+2][j+1]+image[i+2][j+2]+image[i+2][j+3]
-                            +image[i+2][j+4]+image[i+3][j]+image[i+3][j+1]+image[i+3][j+2]+image[i+3][j+3]
-                            +image[i+4][j]+image[i+4][j+1]+image[i+4][j+2]+image[i+4][j+3]+image[i+4][j+4])/25;
+            newImage[i][j] = (image[i][j] + image[i][j + 1] + image[i][j + 2] + image[i][j + 3]
+                + image[i][j + 4] + image[i + 1][j] + image[i + 1][j + 1] + image[i + 1][j + 2] + image[i + 1][j + 3]
+                + image[i + 1][j + 4] + image[i + 2][j] + image[i + 2][j + 1] + image[i + 2][j + 2] + image[i + 2][j + 3]
+                + image[i + 2][j + 4] + image[i + 3][j] + image[i + 3][j + 1] + image[i + 3][j + 2] + image[i + 3][j + 3]
+                + image[i + 4][j] + image[i + 4][j + 1] + image[i + 4][j + 2] + image[i + 4][j + 3] + image[i + 4][j + 4]) / 25;
         }
     }
 }
@@ -542,15 +544,15 @@ void blur_rgb() {
             // adding third index to get RGB
             for (int k = 0; k < RGB;k++) {
                 // getting the avg for a matrix in the image with 5 rows and 5 cols to blur the image
-                newImage_rgb[i][j][k]=(image_rgb[i][j][k]+image_rgb[i][j+1][k]
-                                       +image_rgb[i][j+2][k]+image_rgb[i][j+3][k]+image_rgb[i][j+4][k]
-                                       +image_rgb[i+1][j][k]+image_rgb[i+1][j+1][k]+image_rgb[i+1][j+2][k]
-                                       +image_rgb[i+1][j+3][k]+image_rgb[i+1][j+4][k]+image_rgb[i+2][j][k]
-                                       +image_rgb[i+2][j+1][k]+image_rgb[i+2][j+2][k]+image_rgb[i+2][j+3][k]
-                                       +image_rgb[i+2][j+4][k]+image_rgb[i+3][j][k]+image_rgb[i+3][j+1][k]
-                                       +image_rgb[i+3][j+2][k]+image_rgb[i+3][j+3][k]+image_rgb[i+4][j][k]
-                                       +image_rgb[i+4][j+1][k]+image_rgb[i+4][j+2][k]+image_rgb[i+4][j+3][k]
-                                       +image_rgb[i+4][j+4][k])/25;
+                newImage_rgb[i][j][k] = (image_rgb[i][j][k] + image_rgb[i][j + 1][k]
+                    + image_rgb[i][j + 2][k] + image_rgb[i][j + 3][k] + image_rgb[i][j + 4][k]
+                    + image_rgb[i + 1][j][k] + image_rgb[i + 1][j + 1][k] + image_rgb[i + 1][j + 2][k]
+                    + image_rgb[i + 1][j + 3][k] + image_rgb[i + 1][j + 4][k] + image_rgb[i + 2][j][k]
+                    + image_rgb[i + 2][j + 1][k] + image_rgb[i + 2][j + 2][k] + image_rgb[i + 2][j + 3][k]
+                    + image_rgb[i + 2][j + 4][k] + image_rgb[i + 3][j][k] + image_rgb[i + 3][j + 1][k]
+                    + image_rgb[i + 3][j + 2][k] + image_rgb[i + 3][j + 3][k] + image_rgb[i + 4][j][k]
+                    + image_rgb[i + 4][j + 1][k] + image_rgb[i + 4][j + 2][k] + image_rgb[i + 4][j + 3][k]
+                    + image_rgb[i + 4][j + 4][k]) / 25;
             }
         }
     }
@@ -571,64 +573,64 @@ void Mirror() {
         cout << " Invalid input " << endl;
 }
 
-void Mirror_RGB(){
+void Mirror_RGB() {
     int Mirror_opt;
     cout << "Enter an option for Mirror: 1(upper),2(down),3(right),4(left): ";
     cin >> Mirror_opt;
-    if (Mirror_opt==1)
+    if (Mirror_opt == 1)
         MirrorupforImage_RGB();
-    else if (Mirror_opt==2)
+    else if (Mirror_opt == 2)
         MirrordownforImage_RGB();
-    else if (Mirror_opt==3)
+    else if (Mirror_opt == 3)
         MirrorrightforImage_RGB();
-    else if (Mirror_opt==4)
+    else if (Mirror_opt == 4)
         MirrorleftforImage_RGB();
     else
         cout << " Invalid input " << endl;
 }
-void MirrorupforImage_RGB(){
-    for (int i = SIZE; i >=0 ; i--){
-        for (int j = 0; j <SIZE ; j++) {
-            for (int k = 0; k < RGB ; k++) {
-                image_rgb[i][j][k]=image_rgb[SIZE-i][j][k];
+void MirrorupforImage_RGB() {
+    for (int i = SIZE; i >= 0; i--) {
+        for (int j = 0; j < SIZE; j++) {
+            for (int k = 0; k < RGB; k++) {
+                image_rgb[i][j][k] = image_rgb[SIZE - i][j][k];
             }
         }
     }
 }
 void  MirrordownforImage_RGB() {
-    for (int i = 0; i <SIZE; i++) {
-        for (int j = SIZE; j >= 0; j--){
-            for (int k = 0; k < RGB ; k++)
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = SIZE; j >= 0; j--) {
+            for (int k = 0; k < RGB; k++)
             {
                 image_rgb[i][j][k] = image_rgb[SIZE - i][j][k];
             }
         }
     }
 }
-void MirrorrightforImage_RGB(){
-    for (int i = 0; i <SIZE; i++){
-        for (int j = SIZE; j >=0 ; j--){
-            for (int k = 0; k < RGB ; k++)
+void MirrorrightforImage_RGB() {
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = SIZE; j >= 0; j--) {
+            for (int k = 0; k < RGB; k++)
             {
-                image_rgb[i][j][k]=image_rgb[i][SIZE-j][k];
+                image_rgb[i][j][k] = image_rgb[i][SIZE - j][k];
             }
 
         }
     }
 }
-void MirrorleftforImage_RGB(){
-    for (int i = SIZE; i >=0 ; i--){
-        for (int j = 0; j <SIZE ; j++){
-            for (int k = 0; k < RGB ; k++)
+void MirrorleftforImage_RGB() {
+    for (int i = SIZE; i >= 0; i--) {
+        for (int j = 0; j < SIZE; j++) {
+            for (int k = 0; k < RGB; k++)
             {
-                image_rgb[i][j][k]=image_rgb[i][SIZE-j][k];
+                image_rgb[i][j][k] = image_rgb[i][SIZE - j][k];
             }
         }
     }
 
 }
 
-void BlackandWhiteforImage_RGB(){
+void BlackandWhiteforImage_RGB() {
     for (int i = 0; i < SIZE; i++)
     {
         for (int j = 0; j < SIZE; j++)
@@ -642,13 +644,13 @@ void BlackandWhiteforImage_RGB(){
             image[i][j] = sum;
         }
     }
-    long avg = 0 ;
+    long avg = 0;
     for (int i = 0; i < SIZE; i++) {
-        for (int j = 0; j< SIZE; j++){
-                avg+=image[i][j];
+        for (int j = 0; j < SIZE; j++) {
+            avg += image[i][j];
         }
     }
-    avg/=(SIZE*SIZE);
+    avg /= (SIZE * SIZE);
     for (int i = 0; i < SIZE; i++) {
         for (int j = 0; j < SIZE; j++) {
             if (image[i][j] > avg)
@@ -661,52 +663,54 @@ void BlackandWhiteforImage_RGB(){
 
 void doFlip() {
     int choice;
-    cout << "Enter a choice for flip 1 to horizontal flip and 2 to vertical flip " << endl ;
+    cout << "Enter a choice for flip 1 to horizontal flip and 2 to vertical flip " << endl;
     cin >> choice;
     if (choice == 1) {
         doFlipHorizontal();
-    } else if (choice == 2) {
+    }
+    else if (choice == 2) {
         doFlipVertical();
-    } else
+    }
+    else
         cout << "choice is out of limit " << endl;
 }
 
-void Flip_RGB(){
+void Flip_RGB() {
     int choice0;
     cout << " choose filter RGB for flip 1 for Horizontal 2 for Vertical " << endl;
-    cin >> choice0 ;
-    if (choice0==1){
+    cin >> choice0;
+    if (choice0 == 1) {
         FlipHorizontal_RGB();
     }
-    else if (choice0==2){
+    else if (choice0 == 2) {
         FlipVertical_RGB();
     }
     else
         cout << "Invalid input " << endl;
 
 }
-void FlipHorizontal_RGB(){
-    for (int i = 0; i < SIZE ; i++)
+void FlipHorizontal_RGB() {
+    for (int i = 0; i < SIZE; i++)
     {
         for (int j = 0; j < SIZE; j++)
         {
-            for (int k = 0; k < RGB ; k++)
+            for (int k = 0; k < RGB; k++)
             {
-                newImage_rgb[i][j][k]=image_rgb[i][SIZE-j-1][k];
+                newImage_rgb[i][j][k] = image_rgb[i][SIZE - j - 1][k];
             }
         }
 
     }
 
 }
-void FlipVertical_RGB(){
-    for (int i = 0; i < SIZE ; i++)
+void FlipVertical_RGB() {
+    for (int i = 0; i < SIZE; i++)
     {
         for (int j = 0; j < SIZE; j++)
         {
-            for (int k = 0; k < RGB ; k++)
+            for (int k = 0; k < RGB; k++)
             {
-                newImage_rgb[i][j][k]=image_rgb[SIZE-i-1][j][k];
+                newImage_rgb[i][j][k] = image_rgb[SIZE - i - 1][j][k];
             }
         }
 
@@ -714,85 +718,85 @@ void FlipVertical_RGB(){
 
 }
 
-void doFlipHorizontal(){
-    for (int i = 0; i < SIZE ; i++) {
+void doFlipHorizontal() {
+    for (int i = 0; i < SIZE; i++) {
         for (int j = 0; j < SIZE; j++)
         {
-            newImage[i][j]=image[i][SIZE-j-1];
+            newImage[i][j] = image[i][SIZE - j - 1];
         }
     }
 }
-void doFlipVertical(){
-    for (int i = 0; i < SIZE ; i++)
+void doFlipVertical() {
+    for (int i = 0; i < SIZE; i++)
     {
-        for (int j = 0; j < SIZE ; j++)
+        for (int j = 0; j < SIZE; j++)
         {
-            newImage[i][j]=image[SIZE-i-1][j];
+            newImage[i][j] = image[SIZE - i - 1][j];
         }
     }
 }
-void detect_image(){
-    for (int i = 1 ; i < SIZE - 1  ; i++)
+void detect_image() {
+    for (int i = 1; i < SIZE - 1; i++)
     {
-        for (int j = 1 ; j < SIZE - 1  ; j++ )
+        for (int j = 1; j < SIZE - 1; j++)
         {
-          arr_a[i][j]=(image[i-1][j-1]*1)+(image[i][j-1]*2)+(image[i+1][j-1]*1)+(image[i-1][j+1]*-1)+(image[i][j+1]*-2)+(image[i+1][j+1]*-1);
+            arr_a[i][j] = (image[i - 1][j - 1] * 1) + (image[i][j - 1] * 2) + (image[i + 1][j - 1] * 1) + (image[i - 1][j + 1] * -1) + (image[i][j + 1] * -2) + (image[i + 1][j + 1] * -1);
         }
     }
-    for (int i = 1 ; i < SIZE - 1 ; i++)
+    for (int i = 1; i < SIZE - 1; i++)
     {
-        for (int j = 1 ; j < SIZE - 1 ; ++j )
+        for (int j = 1; j < SIZE - 1; ++j)
         {
-         arr_b[i][j]=(image[i-1][j-1]*-1)+(image[i-1][j]*-2)+(image[i-1][j+1]*-1)+(image[i+1][j-1]*1)+(image[i+1][j]*2)+(image[i+1][j+1]*1);
+            arr_b[i][j] = (image[i - 1][j - 1] * -1) + (image[i - 1][j] * -2) + (image[i - 1][j + 1] * -1) + (image[i + 1][j - 1] * 1) + (image[i + 1][j] * 2) + (image[i + 1][j + 1] * 1);
         }
     }
-    for (int i = 1 ; i < SIZE - 1  ; i++)
+    for (int i = 1; i < SIZE - 1; i++)
     {
-        for (int j = 1 ; j < SIZE - 1 ; j++ )
+        for (int j = 1; j < SIZE - 1; j++)
         {
-         image[i][j]=sqrt(pow(arr_a[i][j],2)+ pow(arr_b[i][j],2));
+            image[i][j] = sqrt(pow(arr_a[i][j] , 2) + pow(arr_b[i][j] , 2));
         }
     }
     invert_image();
 }
 
 void detect_rgb() {
-        for (int i = 1; i < SIZE - 1; i++) {
-            for (int j = 1; j < SIZE - 1; j++) {
-                gx_r[i][j][0] = (image_rgb[i - 1][j - 1][0] * 1) + (image_rgb[i][j - 1][0] * 2) +
-                                (image_rgb[i + 1][j - 1][0] * 1) + (image_rgb[i - 1][j + 1][0] * -1) +
-                                (image_rgb[i][j + 1][0] * -2) + (image_rgb[i + 1][j + 1][0] * -1);
-                gx_g[i][j][1] = (image_rgb[i - 1][j - 1][1] * 1) + (image_rgb[i][j - 1][1] * 2) +
-                                (image_rgb[i + 1][j - 1][1] * 1) + (image_rgb[i - 1][j + 1][1] * -1) +
-                                (image_rgb[i][j + 1][1] * -2) + (image_rgb[i + 1][j + 1][1] * -1);
-                gx_b[i][j][2] = (image_rgb[i - 1][j - 1][2] * 1) + (image_rgb[i][j - 1][2] * 2) +
-                                (image_rgb[i + 1][j - 1][2] * 1) + (image_rgb[i - 1][j + 1][2] * -1) +
-                                (image_rgb[i][j + 1][2] * -2) + (image_rgb[i + 1][j + 1][2] * -1);
+    for (int i = 1; i < SIZE - 1; i++) {
+        for (int j = 1; j < SIZE - 1; j++) {
+            gx_r[i][j][0] = (image_rgb[i - 1][j - 1][0] * 1) + (image_rgb[i][j - 1][0] * 2) +
+                (image_rgb[i + 1][j - 1][0] * 1) + (image_rgb[i - 1][j + 1][0] * -1) +
+                (image_rgb[i][j + 1][0] * -2) + (image_rgb[i + 1][j + 1][0] * -1);
+            gx_g[i][j][1] = (image_rgb[i - 1][j - 1][1] * 1) + (image_rgb[i][j - 1][1] * 2) +
+                (image_rgb[i + 1][j - 1][1] * 1) + (image_rgb[i - 1][j + 1][1] * -1) +
+                (image_rgb[i][j + 1][1] * -2) + (image_rgb[i + 1][j + 1][1] * -1);
+            gx_b[i][j][2] = (image_rgb[i - 1][j - 1][2] * 1) + (image_rgb[i][j - 1][2] * 2) +
+                (image_rgb[i + 1][j - 1][2] * 1) + (image_rgb[i - 1][j + 1][2] * -1) +
+                (image_rgb[i][j + 1][2] * -2) + (image_rgb[i + 1][j + 1][2] * -1);
 
-            }
         }
-        for (int i = 1; i < SIZE - 1; i++) {
-            for (int j = 1; j < SIZE - 1; ++j) {
-                gy_r[i][j][0] = (image_rgb[i - 1][j - 1][0] * 1) + (image_rgb[i][j - 1][0] * 2) +
-                                (image_rgb[i + 1][j - 1][0] * 1) + (image_rgb[i - 1][j + 1][0] * -1) +
-                                (image_rgb[i][j + 1][0] * -2) + (image_rgb[i + 1][j + 1][0] * -1);
-                gy_g[i][j][1] = (image_rgb[i - 1][j - 1][1] * 1) + (image_rgb[i][j - 1][1] * 2) +
-                                (image_rgb[i + 1][j - 1][1] * 1) + (image_rgb[i - 1][j + 1][1] * -1) +
-                                (image_rgb[i][j + 1][1] * -2) + (image_rgb[i + 1][j + 1][1] * -1);
-                gy_b[i][j][2] = (image_rgb[i - 1][j - 1][2] * 1) + (image_rgb[i][j - 1][2] * 2) +
-                                (image_rgb[i + 1][j - 1][2] * 1) + (image_rgb[i - 1][j + 1][2] * -1) +
-                                (image_rgb[i][j + 1][2] * -2) + (image_rgb[i + 1][j + 1][2] * -1);
-            }
-        }
-        for (int i = 1; i < SIZE - 1; i++) {
-            for (int j = 1; j < SIZE - 1; j++) {
-                newImage_rgb[i][j][0] = sqrt(pow(gx_r[i][j][0], 2) + pow(gy_r[i][j][0], 2));
-                newImage_rgb[i][j][1] = sqrt(pow(gx_g[i][j][1], 2) + pow(gy_g[i][j][1], 2));
-                newImage_rgb[i][j][2] = sqrt(pow(gx_b[i][j][2], 2) + pow(gy_b[i][j][2], 2));
-            }
-        }
-        invert_image();
     }
+    for (int i = 1; i < SIZE - 1; i++) {
+        for (int j = 1; j < SIZE - 1; ++j) {
+            gy_r[i][j][0] = (image_rgb[i - 1][j - 1][0] * 1) + (image_rgb[i][j - 1][0] * 2) +
+                (image_rgb[i + 1][j - 1][0] * 1) + (image_rgb[i - 1][j + 1][0] * -1) +
+                (image_rgb[i][j + 1][0] * -2) + (image_rgb[i + 1][j + 1][0] * -1);
+            gy_g[i][j][1] = (image_rgb[i - 1][j - 1][1] * 1) + (image_rgb[i][j - 1][1] * 2) +
+                (image_rgb[i + 1][j - 1][1] * 1) + (image_rgb[i - 1][j + 1][1] * -1) +
+                (image_rgb[i][j + 1][1] * -2) + (image_rgb[i + 1][j + 1][1] * -1);
+            gy_b[i][j][2] = (image_rgb[i - 1][j - 1][2] * 1) + (image_rgb[i][j - 1][2] * 2) +
+                (image_rgb[i + 1][j - 1][2] * 1) + (image_rgb[i - 1][j + 1][2] * -1) +
+                (image_rgb[i][j + 1][2] * -2) + (image_rgb[i + 1][j + 1][2] * -1);
+        }
+    }
+    for (int i = 1; i < SIZE - 1; i++) {
+        for (int j = 1; j < SIZE - 1; j++) {
+            newImage_rgb[i][j][0] = sqrt(pow(gx_r[i][j][0] , 2) + pow(gy_r[i][j][0] , 2));
+            newImage_rgb[i][j][1] = sqrt(pow(gx_g[i][j][1] , 2) + pow(gy_g[i][j][1] , 2));
+            newImage_rgb[i][j][2] = sqrt(pow(gx_b[i][j][2] , 2) + pow(gy_b[i][j][2] , 2));
+        }
+    }
+    invert_image();
+}
 void  doMirrorupforImage() {
     for (int i = SIZE; i >= 0; i--) {
         for (int j = 0; j < SIZE; j++) {
@@ -937,19 +941,18 @@ void shuffle() {
         bool is_valid_order = regex_match(shuffle_order , valid_order);
         if (!is_valid_order) {
             cout << "Not A valid shuffle order." << endl;
-        }else{
+        }
+        else {
             break;
         }
     }
     // Declaration of the start and the end of our pointers to scan the selected quarter.
-
+    int j_start , j_end , k_start , k_end , new_j_start , new_k_start;
     // j && k to traverse the quarter from the original image.
     // j --> to scan rows && k --> to scan columns.
-
     // new_j && new_k to traverse the quarter of the new image.
     // new_j --> to traverse the rows && new_k --> to traverse the columns.
 
-    int j_start , j_end , k_start , k_end , new_j_start , new_k_start;
 
     // Looping through shuffle_order to get the quarters.
     // And setting the start and the end of every pointer.
@@ -962,8 +965,8 @@ void shuffle() {
             k_end = j_end = SIZE / 2;
         }
 
-            // If the charcter is 2 then we will
-            // we want to scan quarter 2 form the original image.
+        // If the charcter is 2 then we will
+        // we want to scan quarter 2 form the original image.
         else if (shuffle_order[i] == '2') {
             j_start = 0; j_end = SIZE / 2; k_start = SIZE / 2; k_end = SIZE;
 
@@ -987,17 +990,17 @@ void shuffle() {
             new_j_start = new_k_start = 0;
         }
 
-            // If i == 1, we will scan quarter 2 of new image.
+        // If i == 1, we will scan quarter 2 of new image.
         else if (i == 1) {
             new_j_start = 0; new_k_start = SIZE / 2;
         }
 
-            // If i == 2, we will scan quarter 3 of new image.
+        // If i == 2, we will scan quarter 3 of new image.
         else if (i == 2) {
             new_j_start = SIZE / 2; new_k_start = 0;
         }
 
-            // If i == 3, we will scan quarter 4 of new image.
+        // If i == 3, we will scan quarter 4 of new image.
         else {
             new_j_start = SIZE / 2; new_k_start = SIZE / 2;
         }
@@ -1022,16 +1025,17 @@ void shuffle_rgb() {
     while (true) {
         // Getting the Wanted order of the quarters
         cout << "Enter the shuffle order like 1 2 3 4: ";
-        getline(cin >> ws, shuffle_order);
+        getline(cin >> ws , shuffle_order);
 
         // Removing spaces from shuffle_order string
-        shuffle_order.erase(remove(shuffle_order.begin(), shuffle_order.end(), ' '), shuffle_order.end());
+        shuffle_order.erase(remove(shuffle_order.begin() , shuffle_order.end() , ' ') , shuffle_order.end());
 
         regex valid_order("[1-4]+[1-4]+[1-4]+[1-4]");
-        bool is_valid_order = regex_match(shuffle_order, valid_order);
+        bool is_valid_order = regex_match(shuffle_order , valid_order);
         if (!is_valid_order) {
             cout << "Not A valid shuffle order." << endl;
-        } else {
+        }
+        else {
             break;
         }
     }
@@ -1042,7 +1046,7 @@ void shuffle_rgb() {
     // new_j && new_k to traverse the quarter of the new image.
     // new_j --> to traverse the rows && new_k --> to traverse the columns.
 
-    int j_start, j_end, k_start, k_end, new_j_start, new_k_start;
+    int j_start , j_end , k_start , k_end , new_j_start , new_k_start;
 
     // Looping through shuffle_order to get the quarters.
     // And setting the start and the end of every pointer.
@@ -1055,8 +1059,8 @@ void shuffle_rgb() {
             k_end = j_end = SIZE / 2;
         }
 
-            // If the charcter is 2 then we will
-            // we want to scan quarter 2 form the original image.
+        // If the charcter is 2 then we will
+        // we want to scan quarter 2 form the original image.
         else if (shuffle_order[i] == '2') {
             j_start = 0;
             j_end = SIZE / 2;
@@ -1065,7 +1069,8 @@ void shuffle_rgb() {
 
             // If the charcter is 3 then we will
             // we want to scan quarter 4 form the original image.
-        } else if (shuffle_order[i] == '3') {
+        }
+        else if (shuffle_order[i] == '3') {
             j_start = SIZE / 2;
             j_end = SIZE;
             k_start = 0;
@@ -1073,7 +1078,8 @@ void shuffle_rgb() {
 
             // If the charcter is 4 then we will
             // we will load quarter 4 form the original image.
-        } else {
+        }
+        else {
             j_start = k_start = SIZE / 2;
             j_end = k_end = SIZE;
         }
@@ -1084,19 +1090,19 @@ void shuffle_rgb() {
             new_j_start = new_k_start = 0;
         }
 
-            // If i == 1, we will scan quarter 2 of new image.
+        // If i == 1, we will scan quarter 2 of new image.
         else if (i == 1) {
             new_j_start = 0;
             new_k_start = SIZE / 2;
         }
 
-            // If i == 2, we will scan quarter 3 of new image.
+        // If i == 2, we will scan quarter 3 of new image.
         else if (i == 2) {
             new_j_start = SIZE / 2;
             new_k_start = 0;
         }
 
-            // If i == 3, we will scan quarter 4 of new image.
+        // If i == 3, we will scan quarter 4 of new image.
         else {
             new_j_start = SIZE / 2;
             new_k_start = SIZE / 2;
@@ -1106,8 +1112,8 @@ void shuffle_rgb() {
         // two pointers : j && k
         // And write in the new image by:
         // two pointers: new_j && new_k
-        for (int j = j_start, new_j = new_j_start; j < j_end; j++, new_j++) {
-            for (int k = k_start, new_k = new_k_start; k < k_end; k++, new_k++) {
+        for (int j = j_start , new_j = new_j_start; j < j_end; j++ , new_j++) {
+            for (int k = k_start , new_k = new_k_start; k < k_end; k++ , new_k++) {
                 for (int l = 0; l < RGB; l++) {
                     newImage_rgb[new_j][new_k][l] = image_rgb[j][k][l];
                 }
