@@ -31,6 +31,7 @@ char gy_b[SIZE][SIZE][RGB];
 char gx_g[SIZE][SIZE][RGB];
 char gy_g[SIZE][SIZE][RGB];
 
+// Saving Images Function (grayscale && RGB)
 void load_image();
 void load_image2();
 void save_image(unsigned char [][SIZE]);
@@ -101,7 +102,7 @@ int main() {
         load_image();
         string choice;
         cout << "1- Black & White Filter\n2- Invert Image\n3- Merge filter\n4- Flip Filter\n5- Rotate Image\n";
-        cout << "6- Darken and Lighten image\n7- Detect Image Edges filter\n8-Enlarge Filter\n9- Shrink Filter\n";
+        cout << "6- Darken and Lighten image\n7- Detect Image Edges filter\n8- Enlarge Filter\n9- Shrink Filter";
         cout << "\na- Mirror 1/2 Image\nb- Shuffle Filter\nc- Blur Filter\n";
         cout << "Please, select a filter to apply or 0 to exit:";
         cin >> choice;
@@ -179,7 +180,7 @@ int main() {
         string choice;
         load_image_rgb();
         cout << "1- Black & White Filter\n2- Invert Image\n3- Merge filter\n4- Flip Filter\n5- Rotate Image\n";
-        cout << "6- Darken and Lighten image\n7- Detect Image Edges filter\n8-Enlarge Filter\n9- Shrink Filter\n";
+        cout << "6- Darken and Lighten image\n7- Detect Image Edges filter\n8- Enlarge Filter\n9- Shrink Filter";
         cout << "\na- Mirror 1/2 Image\nb- Shuffle Filter\nc- Blur Filter\n";
         cout << "Please, select a filter to apply or 0 to exit:";
         cin >> choice;
