@@ -764,43 +764,45 @@ void detect_image() {
     invert_image();
 }
 
+}// using sobel detection law
 void detect_rgb() {
-    for (int i = 1; i < SIZE - 1; i++) {
-        for (int j = 1; j < SIZE - 1; j++) {
-            gx_r[i][j][0] = (image_rgb[i - 1][j - 1][0] * 1) + (image_rgb[i][j - 1][0] * 2) +
-                (image_rgb[i + 1][j - 1][0] * 1) + (image_rgb[i - 1][j + 1][0] * -1) +
-                (image_rgb[i][j + 1][0] * -2) + (image_rgb[i + 1][j + 1][0] * -1);
-            gx_g[i][j][1] = (image_rgb[i - 1][j - 1][1] * 1) + (image_rgb[i][j - 1][1] * 2) +
-                (image_rgb[i + 1][j - 1][1] * 1) + (image_rgb[i - 1][j + 1][1] * -1) +
-                (image_rgb[i][j + 1][1] * -2) + (image_rgb[i + 1][j + 1][1] * -1);
-            gx_b[i][j][2] = (image_rgb[i - 1][j - 1][2] * 1) + (image_rgb[i][j - 1][2] * 2) +
-                (image_rgb[i + 1][j - 1][2] * 1) + (image_rgb[i - 1][j + 1][2] * -1) +
-                (image_rgb[i][j + 1][2] * -2) + (image_rgb[i + 1][j + 1][2] * -1);
+        for (int i = 1; i < SIZE - 1; i++) {
+            for (int j = 1; j < SIZE - 1; j++) {
+                gx_r[i][j][0] = (image_rgb[i - 1][j - 1][0] * -1) + (image_rgb[i][j - 1][0] * -2) +
+                                (image_rgb[i + 1][j - 1][0] * -1) + (image_rgb[i - 1][j + 1][0] * 1) +
+                                (image_rgb[i][j + 1][0] * 2) + (image_rgb[i + 1][j + 1][0] * 1);
+                gx_g[i][j][1] = (image_rgb[i - 1][j - 1][1] * -1) + (image_rgb[i][j - 1][1] * -2) +
+                                (image_rgb[i + 1][j - 1][1] * -1) + (image_rgb[i - 1][j + 1][1] * 1) +
+                                (image_rgb[i][j + 1][1] * 2) + (image_rgb[i + 1][j + 1][1] * 1);
+                gx_b[i][j][2] = (image_rgb[i - 1][j - 1][2] * -1) + (image_rgb[i][j - 1][2] * -2) +
+                                (image_rgb[i + 1][j - 1][2] * -1) + (image_rgb[i - 1][j + 1][2] * 1) +
+                                (image_rgb[i][j + 1][2] * 2) + (image_rgb[i + 1][j + 1][2] * 1);
 
+            }
         }
-    }
-    for (int i = 1; i < SIZE - 1; i++) {
-        for (int j = 1; j < SIZE - 1; ++j) {
-            gy_r[i][j][0] = (image_rgb[i - 1][j - 1][0] * 1) + (image_rgb[i][j - 1][0] * 2) +
-                (image_rgb[i + 1][j - 1][0] * 1) + (image_rgb[i - 1][j + 1][0] * -1) +
-                (image_rgb[i][j + 1][0] * -2) + (image_rgb[i + 1][j + 1][0] * -1);
-            gy_g[i][j][1] = (image_rgb[i - 1][j - 1][1] * 1) + (image_rgb[i][j - 1][1] * 2) +
-                (image_rgb[i + 1][j - 1][1] * 1) + (image_rgb[i - 1][j + 1][1] * -1) +
-                (image_rgb[i][j + 1][1] * -2) + (image_rgb[i + 1][j + 1][1] * -1);
-            gy_b[i][j][2] = (image_rgb[i - 1][j - 1][2] * 1) + (image_rgb[i][j - 1][2] * 2) +
-                (image_rgb[i + 1][j - 1][2] * 1) + (image_rgb[i - 1][j + 1][2] * -1) +
-                (image_rgb[i][j + 1][2] * -2) + (image_rgb[i + 1][j + 1][2] * -1);
+        for (int i = 1; i < SIZE - 1; i++) {
+            for (int j = 1; j < SIZE - 1; ++j) {
+                gy_r[i][j][0] = (image_rgb[i - 1][j - 1][0] * 1) + (image_rgb[i - 1][j][0] * 2) +
+                                (image_rgb[i - 1][j + 1][0] * 1) + (image_rgb[i + 1][j - 1][0] * -1) +
+                                (image_rgb[i + 1][j][0] * -2) + (image_rgb[i + 1][j + 1][0] * -1);
+                gy_g[i][j][1] = (image_rgb[i - 1][j - 1][1] * 1) + (image_rgb[i - 1][j][1] * 2) +
+                                (image_rgb[i - 1][j + 1][1] * 1) + (image_rgb[i + 1][j - 1][1] * -1) +
+                                (image_rgb[i + 1][j][1] * -2) + (image_rgb[i + 1][j + 1][1] * -1);
+                gy_b[i][j][2] = (image_rgb[i - 1][j - 1][2] * 1) + (image_rgb[i - 1][j][2] * 2) +
+                                (image_rgb[i - 1][j + 1][2] * 1) + (image_rgb[i + 1][j - 1][2] * -1) +
+                                (image_rgb[i + 1][j][2] * -2) + (image_rgb[i + 1][j + 1][2] * -1);
+            }
         }
-    }
-    for (int i = 1; i < SIZE - 1; i++) {
-        for (int j = 1; j < SIZE - 1; j++) {
-            newImage_rgb[i][j][0] = sqrt(pow(gx_r[i][j][0] , 2) + pow(gy_r[i][j][0] , 2));
-            newImage_rgb[i][j][1] = sqrt(pow(gx_g[i][j][1] , 2) + pow(gy_g[i][j][1] , 2));
-            newImage_rgb[i][j][2] = sqrt(pow(gx_b[i][j][2] , 2) + pow(gy_b[i][j][2] , 2));
+        for (int i = 1; i < SIZE - 1; i++) {
+            for (int j = 1; j < SIZE - 1; j++) {
+                newImage_rgb[i][j][0] = sqrt(pow(gx_r[i][j][0], 2) + pow(gy_r[i][j][0], 2));
+                newImage_rgb[i][j][1] = sqrt(pow(gx_g[i][j][1], 2) + pow(gy_g[i][j][1], 2));
+                newImage_rgb[i][j][2] = sqrt(pow(gx_b[i][j][2], 2) + pow(gy_b[i][j][2], 2));
+            }
         }
+        invert_image();
     }
-    invert_image();
-}
+
 void  doMirrorupforImage() {
     for (int i = SIZE; i >= 0; i--) {
         for (int j = 0; j < SIZE; j++) {
