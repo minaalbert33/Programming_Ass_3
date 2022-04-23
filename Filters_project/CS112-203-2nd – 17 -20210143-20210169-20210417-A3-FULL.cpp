@@ -464,7 +464,7 @@ void shrink() {
     if (dim == "1/2") {
         for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
-                // getting the avg of matrix 4 * 4 and divide every pixel by 2 to get the photo shrinked by 1/2
+                // getting the avg of matrix 2 * 2 and divide every pixel by 2 to get the photo shrinked by 1/2
                 newImage[i / 2][j / 2] = (image[i][j] + image[i + 1][j] + image[i][j + 1] + image[i + 1][j + 1]) / 4;
             }
         }
@@ -472,7 +472,7 @@ void shrink() {
     else if (dim == "1/3") {
         for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
-                // getting the avg of matrix 4 * 4 and divide every pixel by 3 to get the photo shrinked by 1/3
+                // getting the avg of matrix 2 * 2 and divide every pixel by 3 to get the photo shrinked by 1/3
                 newImage[i / 3][j / 3] = (image[i][j] + image[i + 1][j] + image[i][j + 1] + image[i + 1][j + 1]) / 4;
             }
         }
@@ -481,7 +481,7 @@ void shrink() {
     else {
         for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
-                // getting the avg of matrix 4 * 4 and divide every pixel by 4 to get the photo shrinked by 1/4
+                // getting the avg of matrix 2 * 2 and divide every pixel by 4 to get the photo shrinked by 1/4
                 newImage[i / 4][j / 4] = (image[i][j] + image[i + 1][j] + image[i][j + 1] + image[i + 1][j + 1]) / 4;
             }
         }
@@ -496,7 +496,7 @@ void shrink_rgb() {
             for (int j = 0; j < SIZE; j++) {
                 // adding third index to get RGB
                 for (int k = 0; k < RGB;k++) {
-                    // getting the avg of matrix 4 * 4 and divide every pixel by 2 to get the photo shrinked by 1/2
+                    // getting the avg of matrix 2 * 2 and divide every pixel by 2 to get the photo shrinked by 1/2
                     newImage_rgb[i / 2][j / 2][k] = (image_rgb[i][j][k] + image_rgb[i + 1][j][k] + image_rgb[i][j + 1][k] + image_rgb[i + 1][j + 1][k]) / 4;
                 }
             }
@@ -506,7 +506,7 @@ void shrink_rgb() {
         for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
                 for (int k = 0; k < RGB;k++) {
-                    // getting the avg of matrix 4 * 4 and divide every pixel by 3 to get the photo shrinked by 1/3
+                    // getting the avg of matrix 2 * 2 and divide every pixel by 3 to get the photo shrinked by 1/3
 
                     newImage_rgb[i / 3][j / 3][k] = (image_rgb[i][j][k] + image_rgb[i + 1][j][k] + image_rgb[i][j + 1][k] + image_rgb[i + 1][j + 1][k]) / 4;
                 }
@@ -518,7 +518,7 @@ void shrink_rgb() {
         for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
                 for (int k = 0; k < RGB;k++) {
-                    // getting the avg of matrix 4 * 4 and divide every pixel by 4 to get the photo shrinked by 1/4
+                    // getting the avg of matrix 2 * 2 and divide every pixel by 4 to get the photo shrinked by 1/4
 
                     newImage_rgb[i / 4][j / 4][k] = (image_rgb[i][j][k] + image_rgb[i + 1][j][k] + image_rgb[i][j + 1][k] + image_rgb[i + 1][j + 1][k]) / 4;
                 }
