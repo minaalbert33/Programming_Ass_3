@@ -37,3 +37,10 @@
 
 
 
+
+
+<!-- > ## Examples of the filters:
+|  filter 1 | filter 1 | filter 1 | filter 1 |
+| ----------- |        ------- | ------------- |  ------------------ |
+ | <img src="link"></img>  | <img src="link"></img> | <img src="link"></img> | <img src="link"></img> |
+ -->
