@@ -10,18 +10,14 @@
  
 <!-- ABOUT THE PROJECT -->
 > ## About The Project
-<br/>
-
 * This is a simple Image Processing Console Program
 * This is Program enable u to apply 12 different filter to Grayscale and RGB Images.
   
 * Designed Using ***bmplib.cpp*** which is a small library in that stores Grayscale images as pixels in 2D arrays and RGB images in 3D array. 
 <br/>
-<br/>
 
 <!-- NOTES -->
 >## Notes
-
 * We provided many Grayscale and RGB images to test the Program in the same directory of the ***main.cpp*** file
 
 * Put your image *(Bitmap image format **.bmp**)* in the same directory of the ***main.cpp*** file an try the filters!
